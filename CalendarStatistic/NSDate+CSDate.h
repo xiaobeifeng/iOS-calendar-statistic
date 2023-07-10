@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)date2stringWithFormat:(NSString *)format;
 
+- (BOOL)isToday;
+
 @end
 
 NS_ASSUME_NONNULL_END

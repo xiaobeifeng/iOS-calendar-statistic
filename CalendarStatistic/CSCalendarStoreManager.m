@@ -111,6 +111,7 @@
             NSLog(@"%@", eventArray);
             
             NSMutableArray *weekWorkMarray = [NSMutableArray new];
+            NSMutableArray *todayWorkMarray = [NSMutableArray new];
             CGFloat totalHour = 0.00f;
             for (int i = 0; i < eventArray.count; i++) {
                 EKEvent *event = eventArray[i];
@@ -133,12 +134,18 @@
                 };
                 NSLog(@"%@", mDict);
                 [weekWorkMarray addObject:mDict];
+                
+                if ([event.startDate isToday] && [event.endDate isToday]) {
+                    [todayWorkMarray addObject:mDict];
+                }
+                
             }
             NSDictionary *weekWorkDict = @{
                 @"totalHour": [NSString stringWithFormat:@"%.2f", totalHour],
                 @"calendarName": ekCalendar.title,
                 @"dateInterval": [NSString stringWithFormat:@"%@ 至 %@", [dateDict[@"startDay"] date2stringWithFormat:@"yyyy-MM-dd"] , [dateDict[@"endDay"] date2stringWithFormat:@"yyyy-MM-dd"]],
-                @"data": weekWorkMarray
+                @"data": weekWorkMarray,
+                @"todayData": todayWorkMarray
             };
             
             completion(weekWorkDict);

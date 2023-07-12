@@ -12,7 +12,7 @@
 		230378202A585B7A00AB9E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2303781F2A585B7A00AB9E05 /* Assets.xcassets */; };
 		230378232A585B7A00AB9E05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230378212A585B7A00AB9E05 /* Main.storyboard */; };
 		230378252A585B7A00AB9E05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 230378242A585B7A00AB9E05 /* main.m */; };
-		232963EA2A5C405800E83B92 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 232963E92A5C405800E83B92 /* dist */; };
+		232963F82A5EADDF00E83B92 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 232963F72A5EADDF00E83B92 /* dist */; };
 		238B18292A5941E700F494BD /* CSJ2CConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 238B18282A5941E700F494BD /* CSJ2CConstant.m */; };
 		238B182E2A594B0200F494BD /* NSDictionary+CSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 238B182D2A594B0200F494BD /* NSDictionary+CSDictionary.m */; };
 		238B18312A596BE200F494BD /* CSCalendarStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 238B18302A596BE200F494BD /* CSCalendarStoreManager.m */; };
@@ -35,7 +35,7 @@
 		230378262A585B7A00AB9E05 /* CalendarStatistic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarStatistic.entitlements; sourceTree = "<group>"; };
 		2303782D2A585BEB00AB9E05 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2303782F2A585D5A00AB9E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		232963E92A5C405800E83B92 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		232963F72A5EADDF00E83B92 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 		238B18272A5941E700F494BD /* CSJ2CConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSJ2CConstant.h; sourceTree = "<group>"; };
 		238B18282A5941E700F494BD /* CSJ2CConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSJ2CConstant.m; sourceTree = "<group>"; };
 		238B182A2A59495700F494BD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			children = (
 				238B18262A5941CB00F494BD /* Constants */,
 				2303782F2A585D5A00AB9E05 /* Info.plist */,
-				232963E92A5C405800E83B92 /* dist */,
+				232963F72A5EADDF00E83B92 /* dist */,
 				230378192A585B7900AB9E05 /* AppDelegate.h */,
 				2303781A2A585B7900AB9E05 /* AppDelegate.m */,
 				2303781C2A585B7900AB9E05 /* ViewController.h */,
@@ -200,7 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232963EA2A5C405800E83B92 /* dist in Resources */,
+				232963F82A5EADDF00E83B92 /* dist in Resources */,
 				230378202A585B7A00AB9E05 /* Assets.xcassets in Resources */,
 				230378232A585B7A00AB9E05 /* Main.storyboard in Resources */,
 			);

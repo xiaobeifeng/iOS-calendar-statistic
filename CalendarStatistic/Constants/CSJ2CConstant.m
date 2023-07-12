@@ -15,4 +15,6 @@ NSString *const j2c_callback4getCalendars = @"callback4getCalendars";
 NSString *const j2c_getCalendarEvent = @"getCalendarEvent";
 NSString *const j2c_callback4getCalendarEvent = @"callback4getCalendarEvent";
 
+NSString *const j2c_webViewReload = @"webViewReload";
+
 @end

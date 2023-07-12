@@ -28,6 +28,7 @@
     _webViewConfiguration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_getCalendars];
     [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_getCalendarEvent];
+    [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_webViewReload];
     WKPreferences* preferences = [WKPreferences new];
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
     _webViewConfiguration.preferences = preferences;
@@ -36,7 +37,7 @@
     _webView.navigationDelegate = self;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"dist/"];
     NSURL *pathURL = [NSURL fileURLWithPath:filePath];
-//    NSString *localUrlString = [NSString stringWithFormat:@"http://192.168.3.56:8081"];
+//    NSString *localUrlString = [NSString stringWithFormat:@"http://192.168.43.175:8081"];
 //    NSURL *pathURL = [NSURL URLWithString:localUrlString];
     [_webView loadRequest:[NSURLRequest requestWithURL:pathURL]];
     [self.view addSubview:_webView];
@@ -54,6 +55,12 @@
     if ([message.name isEqualToString:j2c_getCalendarEvent]) {
         [self handleCalendarEvent:message.body];
     }
+    if ([message.name isEqualToString:j2c_webViewReload]) {
+        [self handleWebViewReload];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
 }
 
 #pragma mark - didReceiveScriptMessage
@@ -85,6 +92,10 @@
             }];
         });
     }];
+}
+
+- (void)handleWebViewReload {
+    [self.webView reload];
 }
 
 - (void)setRepresentedObject:(id)representedObject {

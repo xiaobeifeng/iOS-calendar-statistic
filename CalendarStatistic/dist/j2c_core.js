@@ -26,11 +26,20 @@
     getCalendarEventCallback(callbackInfo)
   }
 
+  // 刷新 webView
+  function webViewReload() {
+    let methodName = /function\s*(\w*)/i.exec(arguments.callee.toString())[1]
+    console.log('[methodName]' + methodName)
+    window.webkit.messageHandlers[methodName].postMessage({})
+  }
+
   window['J2C']['getCalendars'] = getCalendars
   window['J2C']['callback4getCalendars'] = callback4getCalendars
 
   window['J2C']['getCalendarEvent'] = getCalendarEvent
   window['J2C']['callback4getCalendarEvent'] = callback4getCalendarEvent
+
+  window['J2C']['webViewReload'] = webViewReload
 
 
 })()

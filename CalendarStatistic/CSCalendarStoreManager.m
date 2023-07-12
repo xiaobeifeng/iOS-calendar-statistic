@@ -129,8 +129,7 @@
                     @"startDate": [event.startDate date2stringWithFormat:@"yyyy-MM-dd HH:mm:ss"],
                     @"endDate": [event.endDate date2stringWithFormat:@"yyyy-MM-dd HH:mm:ss"],
                     @"title": event.title,
-                    @"lastHour": [NSString stringWithFormat:@"%.2f", time2hour],
-                    @"index": @(i+1)
+                    @"lastHour": [NSString stringWithFormat:@"%.2f", time2hour]
                 };
                 NSLog(@"%@", mDict);
                 [weekWorkMarray addObject:mDict];

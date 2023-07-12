@@ -17,6 +17,8 @@ extern NSString *const j2c_callback4getCalendars;
 extern NSString *const j2c_getCalendarEvent;
 extern NSString *const j2c_callback4getCalendarEvent;
 
+extern NSString *const j2c_webViewReload;
+
 @end
 
 NS_ASSUME_NONNULL_END

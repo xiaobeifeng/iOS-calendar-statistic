@@ -35,10 +35,10 @@
     _webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:_webViewConfiguration];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"dist/"];
-    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
-//    NSString *localUrlString = [NSString stringWithFormat:@"http://192.168.43.175:8081"];
-//    NSURL *pathURL = [NSURL URLWithString:localUrlString];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"dist/"];
+//    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
+    NSString *localUrlString = [NSString stringWithFormat:@"https://xiaobeifeng.github.io/vue2-calendar-statistic/#/"];
+    NSURL *pathURL = [NSURL URLWithString:localUrlString];
     [_webView loadRequest:[NSURLRequest requestWithURL:pathURL]];
     [self.view addSubview:_webView];
     [_webView mas_makeConstraints:^(MASConstraintMaker *make) {

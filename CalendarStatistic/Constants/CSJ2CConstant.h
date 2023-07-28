@@ -19,6 +19,9 @@ extern NSString *const j2c_callback4getCalendarEvent;
 
 extern NSString *const j2c_webViewReload;
 
+extern NSString *const j2c_pasteboard;
+extern NSString *const j2c_callback4Pasteboard;
+
 @end
 
 NS_ASSUME_NONNULL_END

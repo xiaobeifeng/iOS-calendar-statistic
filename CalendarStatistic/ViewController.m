@@ -29,6 +29,7 @@
     [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_getCalendars];
     [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_getCalendarEvent];
     [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_webViewReload];
+    [_webViewConfiguration.userContentController addScriptMessageHandler:self name:j2c_pasteboard];
     WKPreferences* preferences = [WKPreferences new];
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
     _webViewConfiguration.preferences = preferences;
@@ -38,6 +39,7 @@
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"dist/"];
 //    NSURL *pathURL = [NSURL fileURLWithPath:filePath];
     NSString *localUrlString = [NSString stringWithFormat:@"https://xiaobeifeng.github.io/vue2-calendar-statistic/#/"];
+//    NSString *localUrlString = [NSString stringWithFormat:@"http://192.168.43.175:8081/#/"];
     NSURL *pathURL = [NSURL URLWithString:localUrlString];
     [_webView loadRequest:[NSURLRequest requestWithURL:pathURL]];
     [self.view addSubview:_webView];
@@ -57,6 +59,9 @@
     }
     if ([message.name isEqualToString:j2c_webViewReload]) {
         [self handleWebViewReload];
+    }
+    if ([message.name isEqualToString:j2c_pasteboard]) {
+        [self handlePasteboardEvent:message.body];
     }
 }
 
@@ -96,6 +101,17 @@
 
 - (void)handleWebViewReload {
     [self.webView reload];
+}
+
+- (void)handlePasteboardEvent:(NSString *)body {
+    NSLog(@"%@", body);
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];  // 必须清空，否则setString会失败。
+    [pasteboard setString:body forType:NSPasteboardTypeString];
+    NSString *javaScript = kJ2CEvaluateJavaScript(j2c_callback4Pasteboard, @{});
+    [_webView evaluateJavaScript:javaScript completionHandler:^(id _Nullable response, NSError * _Nullable error) {
+        NSLog(@"value: %@ error: %@", response, error);
+    }];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
